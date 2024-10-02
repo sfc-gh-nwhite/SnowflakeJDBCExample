@@ -104,8 +104,7 @@ public class SnowflakeJDBCExample {
     properties.put("db", System.getenv("SNOWFLAKE_DATABASE")); // replace "" with target database name
     properties.put("schema", System.getenv("SNOWFLAKE_SCHEMA")); // replace "" with target schema name
     properties.put("authenticator", System.getenv("SNOWFLAKE_AUTHENTICATOR"));
-     properties.put("tracing", "all"); // optional tracing property
-
+    properties.put("tracing", "all"); // optional tracing property
     // Replace <account_identifier> with your account identifier. See
     // https://docs.snowflake.com/en/user-guide/admin-account-identifier.html
     // for details.
