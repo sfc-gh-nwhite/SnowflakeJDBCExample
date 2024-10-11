@@ -6,7 +6,7 @@
 
     <groupId>org.example</groupId>
     <artifactId>SnowflakeJDBCExample</artifactId>
-    <version>1.0</version>
+    <version>1</version>
     <packaging>jar</packaging>
     <name>SnowflakeJDBCExample</name>
 
@@ -40,19 +40,37 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <mainClass>org.example.SnowflakeJDBCExample</mainClass>
+                            <packageName>org.example.SnowflakeJDBCExample</packageName>
                         </manifest>
+                        <manifestEntries>
+                            <Created-By>Snowflake Support</Created-By>
+                            <Built-By>nwhite</Built-By>
+                        </manifestEntries>
                     </archive>
                 </configuration>
             </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-assembly-plugin</artifactId>-->
+<!--                <version>3.7.1</version>-->
+<!--                <configuration>-->
+<!--                    <descriptorRefs>-->
+<!--                        <descriptorRef>jar-with-dependencies</descriptorRef>-->
+<!--                    </descriptorRefs>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <version>3.7.1</version>
-                <configuration>
-                    <descriptorRefs>
-                        <descriptorRef>jar-with-dependencies</descriptorRef>
-                    </descriptorRefs>
-                </configuration>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.6.0</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
